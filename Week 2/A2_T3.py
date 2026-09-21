@@ -1,0 +1,7 @@
+print ("Program starting.")
+Word1 = input("Insert a word: ")
+Word2 = input("Insert another word: ")
+print (f"1st words is {len(Word1)} characters long.")
+print (f"2nd word is {len(Word2)} characters long.")
+print (f"Words together makes one closed compound \'{Word1 + Word2}\'")
+print ("Program ending.")

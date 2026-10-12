@@ -3,6 +3,8 @@ print ("Program starting.\n")
 StartNum = int(input("Insert starting point: "))
 StopNum = int(input("Insert stopping point: "))
 InspNum = int(input("Insert inspection point: "))
+firstLoop = ""
+secondLoop = ""
 
 while True:
     if StartNum >= StopNum:
@@ -16,19 +18,19 @@ while True:
         print ("\nFirst loop - inspection with break:")
         for i in range(StartNum, StopNum):
             if (i == InspNum):
+                print (firstLoop.strip())
                 break
-            elif (i == InspNum -1):
-                 print (i)
             else:
-                 print (i, end=" ")
+                 firstLoop += str(i) + " "
+        
         print ("Second loop - inspection with continue:")
         for i in range(StartNum, StopNum):
             if (i == InspNum):
                 continue
             elif (i == StopNum - 1):
-                print (i)
+                print (secondLoop.strip())
             else:
-                print (i, end=" ")
+                secondLoop += str(i) + " "
         break
 
 print ("\nProgram ending.")

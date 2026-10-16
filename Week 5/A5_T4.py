@@ -3,15 +3,15 @@ def askDimension(PPrompt: str) -> float:
    return Feed
 
 def calcRectangleArea(PWidth: float, PHeight: float) -> float:
-   Feed = PWidth * PHeight
-   return Feed
+   Area = PWidth * PHeight
+   return Area
 
 def main():
    print ("Program starting.")
-   PWidth = askDimension("width")
-   PHeight = askDimension("height")
-   Area = calcRectangleArea(PWidth, PHeight)
-   print (f"\nArea is {round(Area, 1)}²")
+   Width = askDimension("width")
+   Height = askDimension("height")
+   Area = calcRectangleArea(Width, Height)
+   print (f"\nArea is {Area}²")
    print ("Program ending.")
 
 main()

@@ -1,14 +1,16 @@
 def main():
     print ("Program starting.")
-    PName = askName()
-    greetUser(PName)
+    name = askName()
+    greetUser(name)
     print ("Program ending.")
     return None
 
 def askName():
-    PName = input("Insert name: ")
-    return PName
+    name = input("Insert name: ")
+    return name
 
 def greetUser(PName):
     print (f"Hello {PName}!")
     return None
+
+main()

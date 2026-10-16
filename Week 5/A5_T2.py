@@ -1,7 +1,7 @@
 def main():
     print ("Program starting.\n")
-    PWord = input("Insert word: ")
-    frameWord(PWord)
+    word = input("Insert word: ")
+    frameWord(word)
     print ("Program ending.")
     return None
 

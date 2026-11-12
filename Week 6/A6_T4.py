@@ -1,3 +1,5 @@
+#Function that converts the files content into a list
+#and reads filters out empty lines and returns rest of the lines as a string.
 def readFile(Pfilename:str) ->str:
     file = open(Pfilename, "r", encoding="utf-8")
     lines = file.readlines()
@@ -11,6 +13,7 @@ def readFile(Pfilename:str) ->str:
             names += lines[i].strip()
     return names
 
+#Function that gets a string as inpnut, splits it into a list and counts the words and characters, and checks which words are the shortest and longest.
 def analyseNames(Pnames:str):
     nameList = Pnames.split()
     shortest = len(nameList[0])

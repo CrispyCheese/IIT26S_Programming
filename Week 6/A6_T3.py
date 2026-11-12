@@ -1,3 +1,4 @@
+#Reads the named file adds the content of lines into a list and returns that list
 def readFile(Pfilename:str)-> list:
     content = list()
     index = 0
@@ -11,6 +12,7 @@ def readFile(Pfilename:str)-> list:
     file.close()
     return content
 
+#Writes the input lists conatent line by line into the target file.
 def writeFile(Pcontent:list,Pfilename:str):
     file = open(Pfilename, "w", encoding="utf-8")
     for i in range(0,len(Pcontent)):

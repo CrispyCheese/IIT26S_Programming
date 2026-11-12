@@ -1,21 +1,19 @@
-#Reads the named file adds the content of lines into a list and returns that list
 def readFile(Pfilename:str)-> list:
+    """Reads the named file line by line adds the content of lines into a list and returns that list."""
     content = list()
-    index = 0
     file = open(Pfilename, "r", encoding="utf-8")
-    while True:
+    while True: 
         line = file.readline()
-        if (len(line) == 0):
+        if (len(line) == 0): #If the line is empty stop the loop
             break
-        content.append(line)
-        index += 1
+        content.append(line) #Add the content the current line into the list
     file.close()
     return content
 
-#Writes the input lists conatent line by line into the target file.
 def writeFile(Pcontent:list,Pfilename:str):
+    """Writes the input lists content line by line into the target file."""
     file = open(Pfilename, "w", encoding="utf-8")
-    for i in range(0,len(Pcontent)):
+    for i in range(0,len(Pcontent)): # Loops through the list and writes the content into the file 
         file.write(Pcontent[i])
     file.close()
     return None

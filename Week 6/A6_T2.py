@@ -1,9 +1,6 @@
-def writeFile(Pcontent:list,Pfilename:str):
-    file = open(Pfilename, 'w', encoding="utf-8")
-    index = 0
-    while (index != len(Pcontent)):
-        file.write(Pcontent[index] + "\n")
-        index += 1
+def writeFile(Pcontent:str,Pfilename:str):
+    file = open(Pfilename, 'w', encoding="UTF-8")
+    file.write(Pcontent)    
     file.close()
     return None
 
@@ -12,8 +9,7 @@ def main ():
     firstName = input("Insert first name: ")
     lastName = input("Insert last name: ")
     filename = input("Insert filename: ")
-    content = firstName.strip() + ";" + lastName.strip()
-    content = content.split(';')
+    content = firstName.strip() + "\n" + lastName.strip() + "\n"
     writeFile(content,filename)
     print ("Program ending.")
     return None

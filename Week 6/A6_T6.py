@@ -18,12 +18,11 @@ def cipherWords(PwordList:list)->str:
         ciphered = ""
         toCipher = str(PwordList[i])                    
         for u in range (0, len(toCipher)):              #Loop through all the characters in the indexed word
-            for a in range(0,len(alphabet)):        #Find the index of the character in the alphabet variable
-                if (toCipher[u] == alphabet[a]):
-                    ciphered += rot13[a]            #Add the corresponding rot13 character to ciphered
-                    break
-                elif (a == (len(alphabet) -1)):
-                    ciphered += toCipher[u]                 
+            if (toCipher[u] in alphabet):           #Check if character is in the alphabet
+                index = alphabet.index(toCipher[u])
+                ciphered += rot13[index]            #Add the corresponding rot13 character to ciphered
+            else:
+                ciphered += toCipher[u]                 
         cipheredContent += ciphered + "\n"
     return cipheredContent
 

@@ -1,34 +1,28 @@
-def getIntList()->list:
-    feed = input("Insert comma separated integers: ")
-    return feed.split(",")
-
-def checkWrongInputs(PintList:list)->list:
-    """Gets list as input checks removes non integers from it and returns that list"""
-    invalidIndexes = list()
-    for i in range(0, len(PintList)):
-        if (str(PintList[i]).isnumeric() != True):              #Check if user input contains something else than numbers
-            print (f"Invalid value \'{PintList[i]}\' detected.")
-            invalidIndexes.append(i)                                 #Save the index of invalid inputs
+def checkWrongInputs(Pinput:str, PintList:list[int]):
+    """Splits the user input and checks for non integers adding valid integers into a list"""
+    userInput = Pinput.split(",")
+    for i in range(0, len(userInput)):
+        if ((userInput[i]).isnumeric() != True):                     #Check if user input contains something else than numbers
+            print (f"Invalid value \'{userInput[i]}\' detected.")                        
         else:
-            PintList[i] = int(PintList[i])
-    for u in range (0,len(invalidIndexes)):                     #Remove invalid inputs 
-        PintList.pop(invalidIndexes[u])
-    return PintList
-        
-def getSumandEven(Pnumberlist:list):
-    """Gets list containing integers as input counts the sum of all and checks if the sum is even or odd returning corresponding string"""
+            PintList.append(int(userInput[i]))                        #Add the valid inputs into the list
+    return None
+       
+def getSumandEven(Pnumberlist:list[int]):
+    """Gets list containing integers sums them all and checks if sum is even or odd returns a string to be printed"""
     total = 0
     for i in range(0,len(Pnumberlist)):
         total += Pnumberlist[i]
-    if ((total % 2) == 0):
+    if ((total % 2) == 0):                      #Checking if sum is even or odd
         return (f"Sum of the integers is {total} and it's even")
     else:
         return (f"Sum of the integers is {total} and it's odd")
 
 def main():
     print ("Program starting")
-    integerList = getIntList()
-    checkWrongInputs(integerList)
+    integerList: list[int] = []
+    feed = input("Insert comma separated integers: ")
+    checkWrongInputs(feed, integerList)
     if (len(integerList) == 0):
         print ("No values to analyse.")
     else:

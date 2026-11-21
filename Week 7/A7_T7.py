@@ -72,14 +72,14 @@ def fwdRotorPass(Pindex:int, Pconfig:list[str], ProtorShift:int):
     return indexOut
 
 def encryptChar(Pinput:str, PenigmaConfig:list[list[str]], Protors:list[int])->str:
-        """Encrypts the input character according to the chosen enigma config"""
-        index = ALPHABET.index(Pinput)                                  #Index of the input character in alphabet
-        for i in range(0, 3):                                           #Loop through the rotors towards reflector
-            index = fwdRotorPass(index, PenigmaConfig[i], Protors[i])    
-        index = reflectorPass(index, PenigmaConfig[3])                  #Reflectors character shift            
-        for j in range(2, -1, -1):                                      #Looping through ther rotors backwards from reflector
-            index = backRotorPass(index, PenigmaConfig[j], Protors[j])
-        return (ALPHABET[index])
+    """Encrypts the input character according to the chosen enigma config"""
+    index = ALPHABET.index(Pinput)                                  #Index of the input character in alphabet
+    for i in range(0, 3):                                           #Loop through the rotors towards reflector
+        index = fwdRotorPass(index, PenigmaConfig[i], Protors[i])    
+    index = reflectorPass(index, PenigmaConfig[3])                  #Reflectors character shift            
+    for j in range(2, -1, -1):                                      #Looping through ther rotors backwards from reflector
+        index = backRotorPass(index, PenigmaConfig[j], Protors[j])
+    return (ALPHABET[index])
     
 def main():
     print ("Program starting")

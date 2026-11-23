@@ -15,3 +15,5 @@ This repository contains my completed tasks for AT00DF54 Introduction to Industr
 [W6_7](https://github.com/CrispyCheese/Python_programming_W6_6)<br>
 [W7_4](https://github.com/CrispyCheese/Python_programming_W7_4)<br>
 [W7_5](https://github.com/CrispyCheese/Python_programming_W7_5)<br>
+[W8_5](https://github.com/CrispyCheese/Python_programming_W8_5)<br>
+[W8_6](https://github.com/CrispyCheese/Python_programming_W8_6)<br>

@@ -1,11 +1,12 @@
-from template import numOptionsAndChoice
+import template
 from time import sleep
 
 def main():
     print ("Program starting.")
     pauseTime = float()
     while True:
-        userChoice = numOptionsAndChoice("Set pause duration, Activate pause")
+        template.showOptions("Set pause duration,Activate pause")
+        userChoice = template.askChoice("Your choice", 2)
         if (userChoice == 0):
             print ("Exiting program\n")
             break
@@ -16,6 +17,8 @@ def main():
             print (f"Pausing time for {pauseTime} seconds")
             sleep(pauseTime)
             print("Unpaused.\n")
+        else:
+            print (f"Unknown choice \"{userChoice}\"!")
     print ("Program ending.")
     return None
 

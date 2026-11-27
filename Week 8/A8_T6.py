@@ -23,27 +23,50 @@ def getCrclParameters()->list:
     return params
 
 def drawSqr(Pdrawing:Drawing):
-    squareParameters = getSqrParameters()
-
-def drawCircle(Pdrawing:Drawing):
-    circleParameters = getCrclParameters()
-
-def saveSvg(Pdrawing:Drawing):
-    filename = input("Insert filename: ")
-    print (f"Saving file to\"{filename}\"")
-    saveConfirm = input("Proceed (y/n)?: ")
-    if (saveConfirm.strip().lower() == "y"):
-        file = open(filename, "w", encoding="")
-        file.write(Pdrawing)
+    squareParams = getSqrParameters()
+    try:
+        Pdrawing.add(Rect(insert=(int(squareParams[0]), int(squareParams[1])), size=(int(squareParams[2]), int(squareParams[2])), fill=squareParams[3], stroke=squareParams[4]))
+    except ValueError:
+        print ("Incorrect parameter inputs try again.")
     return None
 
+def drawCircle(Pdrawing:Drawing):
+    circleParams = getCrclParameters()
+    try:
+        Pdrawing.add(Circle(center=(int(circleParams[0]), int(circleParams[1])), r=int(circleParams[2]), fill=circleParams[3], stroke=circleParams[4]))
+    except ValueError:
+        print ("Incorrect parameter inputs try again.")
+    return None
 
+def saveConfirm()->str:
+    while True:
+        char = input("Proceed (y/n)?: ")
+        if (char.lower() == "y" or char.lower() == "n"):
+            break
+        else:
+            print ("Incorrect input")
+    return char.lower()
+
+def saveSvg(Pdrawing:Drawing):
+    name = input("Insert filename: ")
+    print (f"Saving file to\"{name}\"")
+    while True:
+        char = input("Proceed (y/n)?: ")
+        if (char.lower() == "y"):
+            Pdrawing.saveas(name)
+            break
+        elif (char.lower() == "n"):
+            print ("Aborting save operation.")
+            break
+        else:
+            print ("Incorrect input")
+    return None
 
 def main():
     drwng = Drawing()
     print ("Program starting.")
     while True:
-        template.showOptions("Draw square, Draw circle, Save svg")
+        template.showOptions("Draw square,Draw circle,Save svg")
         userChoice = template.askChoice("Your choice", 3)
         if (userChoice == 0):
             print ("Exiting...\n")
@@ -58,6 +81,7 @@ def main():
             print()
         elif (userChoice == 3):
             saveSvg(drwng)
+            print ("Vector saved successfully!\n")
     print ("Program ending.")
 
 if __name__ == "__main__":
